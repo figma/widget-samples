@@ -1,0 +1,10 @@
+{
+  "name": "UserBadge",
+  "id": "10074075004744806001",
+  "api": "1.0.0",
+  "editorType": ["figjam"],
+  "permissions": ["currentuser"],
+  "containsWidget": true,
+  "main": "code.js",
+  "widgetApi": "1.0.0"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "WidgetTemplate",
+  "version": "1.0.0",
+  "description": "WidgetTemplate",
+  "scripts": {
+    "test": "npm run typecheck && npm run build",
+    "format": "prettier --write .",
+    "typecheck": "npm run typecheck:main && npm run typecheck:ui",
+    "typecheck:main": "tsc --noEmit -p widget-src",
+    "typecheck:ui": "tsc --noEmit -p ui-src",
+    "typecheck:watch": "concurrently \"npm run typecheck:main -- --watch\" \"npm run typecheck:ui -- --watch\"",
+    "build": "npm run build:ui && npm run build:main",
+    "build:production": "npm run build:ui && npm run build:main -- --minify",
+    "build:main": "esbuild widget-src/code.tsx --bundle --outfile=dist/code.js",
+    "build:ui": "npx vite build --minify esbuild --emptyOutDir=false",
+    "build:watch": "concurrently \"npm run build:main -- --watch\" \"npm run build:ui -- --watch\"",
+    "dev:ui": "npx vite"
+  },
+  "author": "Figma",
+  "license": "MIT License",
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.37.0",
+    "@figma/widget-typings": "^1.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "concurrently": "^6.3.0",
+    "esbuild": "^0.13.5",
+    "prettier": "^2.3.2",
+    "typescript": "^4.4.2",
+    "vite": "^2.5.2",
+    "vite-plugin-singlefile": "^0.5.1"
+  }
+}

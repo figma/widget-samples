@@ -1,0 +1,10 @@
+{
+  "name": "Counter",
+  "id": "10074075004744806000",
+  "api": "1.0.0",
+  "editorType": ["figjam"],
+  "permissions": [],
+  "containsWidget": true,
+  "main": "code.js",
+  "widgetApi": "1.0.0"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "WidgetTemplate",
+  "id": "10074075004744806088",
+  "api": "1.0.0",
+  "editorType": ["figjam"],
+  "permissions": ["currentuser"],
+  "containsWidget": true,
+  "main": "dist/code.js",
+  "ui": "dist/index.html"
+}
