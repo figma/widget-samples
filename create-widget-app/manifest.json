@@ -6,5 +6,6 @@
   "permissions": ["currentuser"],
   "containsWidget": true,
   "main": "dist/code.js",
-  "ui": "dist/index.html"
+  "ui": "dist/index.html",
+  "widgetApi": "1.0.0"
 }
