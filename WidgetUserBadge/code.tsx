@@ -1,8 +1,22 @@
 const { widget } = figma
-const { AutoLayout, Image, Text, useSyncedState, usePropertyMenu } = widget
+const { AutoLayout, Image, Rectangle, Text, useSyncedState, usePropertyMenu, useEffect } = widget
 
 function UserBadge() {
-  const [showName, setShowName] = useSyncedState('showName', true)
+  const [showName, setShowName] = useSyncedState<boolean>('showName', true)
+  const [name, setName] = useSyncedState<string>('name', "")
+  const [photoUrl, setPhotoUrl] = useSyncedState<string | null>('photoUrl', null)
+
+  useEffect(() => {
+    if (!name) {
+      if (figma.currentUser) {
+        setName(figma.currentUser.name)
+        setPhotoUrl(figma.currentUser.photoUrl)
+      } else {
+        figma.notify("Please login to figma")
+      }
+    }
+  })
+
   usePropertyMenu(
     [
       {
@@ -43,7 +57,11 @@ function UserBadge() {
         fill="#E6E6E6"
         cornerRadius={8}
       >
-        <Image cornerRadius={6} width={30} height={30} src={figma.currentUser.photoUrl} />
+        {photoUrl ? (
+          <Image cornerRadius={6} width={30} height={30} src={photoUrl} />
+        ) : (
+          <Rectangle cornerRadius={6} width={30} height={30} fill="#2A2A2A" />
+        )}
         {showName && (
           <AutoLayout
             direction="horizontal"
@@ -51,13 +69,13 @@ function UserBadge() {
             verticalAlignItems="center"
             height="hug-contents"
             padding={4}
-            fill={null}
           >
-            <Text fontSize={16}>{figma.currentUser.name}</Text>
+            <Text fontSize={16}>{name}</Text>
           </AutoLayout>
         )}
       </AutoLayout>
     </AutoLayout>
   )
 }
+
 widget.register(UserBadge)

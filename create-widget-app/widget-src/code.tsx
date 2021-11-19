@@ -17,7 +17,7 @@ function Widget() {
           figma.showUI(__html__)
           figma.ui.on('message', (msg) => {
             if (msg === 'hello') {
-              figma.notify(`Hello ${figma.currentUser.name}`)
+              figma.notify(`Hello Widgets`)
             }
             if (msg === 'close') {
               figma.closePlugin()
