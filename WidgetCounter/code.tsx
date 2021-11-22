@@ -20,14 +20,6 @@ const upIconSrc = `
   </svg>
 `
 
-const test = `
-<svg width="959" height="574" viewBox="0 0 959 574" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="959" height="574" fill="white"/>
-<rect x="49" y="42" width="851" height="508" fill="#FF0000"/>
-<rect x="96" y="74" width="238" height="160" fill="#C4C4C4"/>
-</svg>
-`
-
 function Counter() {
   const [count, setCount] = useSyncedState('count', 0)
   const propertyMenu: WidgetPropertyMenuItem[] = [
@@ -35,7 +27,7 @@ function Counter() {
       tooltip: 'Increment',
       propertyName: 'increment',
       itemType: 'action',
-      icon: test,
+      icon: upIconSrc,
     },
   ]
   if (count > 0) {
