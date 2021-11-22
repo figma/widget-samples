@@ -1,7 +1,16 @@
-Widget Samples
+FigJam Widget Samples
 ===
 
-Sample [widgets](https://www.figma.com/widget-docs)!
+Widgets are custom, interactive [FigJam](https://figma.com/figjam) objects you place in a FigJam file to extend FigJam's functionality. 
+
+Widgets are written in a declarative style similar to React components, so developers can define what a widget looks like using a component-based API similar to React. If you have written React before you should feel right at home. 
+
+A widget is just a “pure function” that returns what gets rendered inside of a node. They can also have their widget run arbitrary code in response to various user interactions, such as click events. Widgets also have custom property menus similar to other FigJam objects. 
+
+So far developers have built widgets for people to use together — like voting, polls, and on canvas games. You can see a full list of published [widgets here](https://www.figma.com/community/widgets/widgets).
+
+Ready to make you first widget? Check out our [developer docs](https://www.figma.com/widget-docs) to get started!
+
 
 ## Widgets
 
