@@ -1,33 +1,56 @@
 MultiplayerCounter
 ===
 
-This sample widget should work out of the box without any build steps.
-However if you want to tweak the widget source code, read on!
+A multiplayer-safe counter widget that uses `useSyncedMap` and `figma.activeUsers[0].sessionId`
+
+Code organization:
+
+| dir / path               | description                          |
+| ------------------------ | ------------------------------------ |
+| widget-src/              | This is where the widget code lives  |
+| widget-src/code.tsx      | Main entry point for the widget code |
+| widget-src/tsconfig.json | tsconfig for the widget code         |
+| dist/                    | Built output goes here               |
+
+- The widget code is built using esbuild to bundle widget-src/code.tsx into one file.
+
+## Getting started
+
+### One-time setup
+1. Make a copy of this folder
+2. Update manifest.json, package.json and package-lock.json where it says `name: ...`
+3. Install the required dependencies `npm ci`
 
 
-# Installation
+### Importing your widget
+1. "Import widget from manifest"
+2. Build code `npm run build`
+3. Choose your manifest.json
 
-You'll need node.js installed. You can find the download link for it here: https://nodejs.org/en/download/
+## Development
 
+The quickest way to build your widget during development is by running:
 
-Install the dependencies for building this widget:
-
-```bash
-npm ci
+```sh
+npm run dev
 ```
 
-NOTE: This sample uses a local version of plugin-typings since the widget types are not yet publicly available.
+This command starts the follow in watch mode:
+1. typechecking for widget-src
+2. building for widget-src
 
-# Building the widget
+While this command is running, any changes to `widget-src/code.tsx` will be compiled into the `dist/code.js` file that is referenced by the manifest.json.
 
-Any changes to `code.tsx` needs to be compiled into the corresponding `code.js` file.
+## Other scripts
 
-```bash
-npm run build
+| script                   | description                                              |
+| ------------------------ | -------------------------------------------------------- |
+| npm run build            | one-off full build of the widget                         |
+| npm run test             | typecheck the widget code                                |
 
-npm run build:watch // build and rebuild on any changes
-```
 
 # Issues / Bugs
 
-If you find anything bugs or have any questions, please reach out in the private beta Slack channel.
+For more information about widgets, please visit the widget documentation at https://www.figma.com/widget-docs.
+
+If you find anything bugs or have any questions, please reach out via https://www.figma.com/widget-docs/get-help/.
