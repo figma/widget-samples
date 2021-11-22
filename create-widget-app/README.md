@@ -53,3 +53,9 @@ This command starts the follow in watch mode:
 | npm run build:main       | one-off build of the widget code                                        |
 | npm run build:ui         | one-off build of the iframe code                                        |
 | npm run tsc              | typecheck both the iframe and widget                                    |
+
+# Issues / Bugs
+
+For more information about widgets, please visit the widget documentation at https://www.figma.com/widget-docs.
+
+If you find anything bugs or have any questions, please reach out via https://www.figma.com/widget-docs/get-help/.
