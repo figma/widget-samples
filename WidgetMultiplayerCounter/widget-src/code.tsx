@@ -11,7 +11,6 @@ const buttonSrc = `
 function Counter() {
   const votesMap = useSyncedMap<number>('votes')
   const numVotes = votesMap.values().reduce((acc, x) => acc + x, 0)
-  const voteKey = String(figma.activeUsers[0].sessionId)
 
   const propertyMenu: WidgetPropertyMenuItem[] = [
     {
@@ -34,6 +33,7 @@ function Counter() {
   })
 
   usePropertyMenu(propertyMenu, ({ propertyName }) => {
+    const voteKey = String(figma.currentUser?.sessionId)
     if (propertyName === 'decrement') {
       votesMap.set(voteKey, (votesMap.get(voteKey) || 0) - 1)
     } else if (propertyName === 'increment') {
@@ -66,6 +66,7 @@ function Counter() {
       <SVG
         src={buttonSrc}
         onClick={() => {
+          const voteKey = String(figma.currentUser?.sessionId)
           votesMap.set(voteKey, (votesMap.get(voteKey) || 0) + 1)
         }}
       />
