@@ -9,36 +9,36 @@ const buttonSrc = `
 `
 
 function Counter() {
-  const votesMap = useSyncedMap<number>('votes')
+  const votesMap = useSyncedMap<number>("votes")
   const numVotes = votesMap.values().reduce((acc, x) => acc + x, 0)
-  const voteKey = String(figma.activeUsers[0].sessionId)
 
   const propertyMenu: WidgetPropertyMenuItem[] = [
     {
-      tooltip: 'Increment',
-      propertyName: 'increment',
-      itemType: 'action',
+      tooltip: "Increment",
+      propertyName: "increment",
+      itemType: "action",
     },
   ]
   if (numVotes > 0) {
     propertyMenu.push({
-      tooltip: 'Decrement',
-      propertyName: 'decrement',
-      itemType: 'action',
+      tooltip: "Decrement",
+      propertyName: "decrement",
+      itemType: "action",
     })
   }
   propertyMenu.push({
-    tooltip: 'Reset',
-    propertyName: 'reset',
-    itemType: 'action',
+    tooltip: "Reset",
+    propertyName: "reset",
+    itemType: "action",
   })
 
   usePropertyMenu(propertyMenu, ({ propertyName }) => {
-    if (propertyName === 'decrement') {
+    const voteKey = String(figma.currentUser?.sessionId)
+    if (propertyName === "decrement") {
       votesMap.set(voteKey, (votesMap.get(voteKey) || 0) - 1)
-    } else if (propertyName === 'increment') {
+    } else if (propertyName === "increment") {
       votesMap.set(voteKey, (votesMap.get(voteKey) || 0) + 1)
-    } else if (propertyName === 'reset') {
+    } else if (propertyName === "reset") {
       votesMap.keys().forEach((key) => votesMap.delete(key))
     }
   })
@@ -52,11 +52,11 @@ function Counter() {
       spacing={12}
       strokeWidth={3}
       stroke={{
-        type: 'solid',
-        color: '#123456',
+        type: "solid",
+        color: "#123456",
       }}
       effect={{
-        type: 'drop-shadow',
+        type: "drop-shadow",
         color: { r: 0, g: 0, b: 0, a: 0.2 },
         offset: { x: 0, y: 0 },
         blur: 2,
@@ -66,6 +66,7 @@ function Counter() {
       <SVG
         src={buttonSrc}
         onClick={() => {
+          const voteKey = String(figma.currentUser?.sessionId)
           votesMap.set(voteKey, (votesMap.get(voteKey) || 0) + 1)
         }}
       />
