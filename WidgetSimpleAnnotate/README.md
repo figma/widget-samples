@@ -2,7 +2,7 @@
 
 A simple widget for creating inline-editable annotations.
 
-![Simple Annotate widget usage video](WidgetSimpleAnontate.gif)
+![Simple Annotate widget usage video](./WidgetSimpleAnontate.gif)
 
 This repo was created by `@figma/create-widget`. Create your own by running
 
