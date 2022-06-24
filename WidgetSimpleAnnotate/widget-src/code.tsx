@@ -81,10 +81,7 @@ function Widget() {
           strokeWidth: 5,
           verticalAlignItems: "center",
         }}
-        onTextEditEnd={(e) => {
-          setText(e.characters.trim());
-          setOpen(false);
-        }}
+        onTextEditEnd={(e) => setText(e.characters.trim())}
         placeholder="Your annotation here..."
         value={text}
         width={400}
