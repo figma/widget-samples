@@ -6,6 +6,11 @@ function Notepad() {
 
   return (
     <Input
+      fill="#000"
+      fontSize={12}
+      height="hug-contents"
+      horizontalAlignText="left"
+      inputBehavior="multiline"
       inputFrameProps={{
         effect: {
           type: "drop-shadow",
@@ -19,13 +24,9 @@ function Notepad() {
         padding: 8,
         verticalAlignItems: "center",
       }}
-      fill="#000"
-      fontSize={12}
-      height="hug-contents"
-      horizontalAlignText="left"
       onTextEditEnd={(e) => setText(e.characters)}
       value={text}
-      width="fill-parent"
+      width={100}
     />
   );
 }
