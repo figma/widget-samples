@@ -1,5 +1,5 @@
 {
-  "name": "MultiplayerCounter",
+  "name": "multiplayer-counter",
   "version": "1.0.0",
   "description": "Sample Multiplayer Counter Widget",
   "scripts": {
@@ -13,8 +13,8 @@
     "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "@figma/plugin-typings": "^1.44.0",
-    "@figma/widget-typings": "^1.2.1",
+    "@figma/plugin-typings": "^1.49.0",
+    "@figma/widget-typings": "^1.4.0",
     "concurrently": "^6.4.0",
     "esbuild": "^0.13.15"
   }

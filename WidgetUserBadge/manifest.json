@@ -2,7 +2,7 @@
   "name": "UserBadge",
   "id": "10074075004744806001",
   "api": "1.0.0",
-  "editorType": ["figjam"],
+  "editorType": ["figma", "figjam"],
   "permissions": ["currentuser"],
   "containsWidget": true,
   "main": "dist/code.js",

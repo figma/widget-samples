@@ -10,11 +10,11 @@
   "author": "Figma",
   "license": "MIT License",
   "dependencies": {
-    "@figma/plugin-typings": "^1.49.0",
-    "@figma/widget-typings": "^1.4.0",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
+    "@figma/plugin-typings": "^1.49.0",
+    "@figma/widget-typings": "^1.4.0",
     "concurrently": "^6.4.0",
     "esbuild": "^0.13.15"
   }
