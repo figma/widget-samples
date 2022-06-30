@@ -20,9 +20,9 @@ A simple counter widget that showcases `<Frame>`, `<Text>`, `useSyncedState`, `u
 
 ### Widget Notepad
 
-A widget that showcases opening an iframe to get additional user input and the `useEffect` hook.
+A widget that showcases the [`Input`](https://www.figma.com/widget-docs/api/component-Input/) component to get user input directly on the canvas.
 
-![Notepad Widget](https://user-images.githubusercontent.com/610102/137217269-98b1503f-029c-4fd0-844c-0a5a91eb5ae8.png)
+![Notepad Widget](https://user-images.githubusercontent.com/97200987/176713532-b80d0221-fc01-4bbc-bb5d-0a152bf127d2.png)
 
 ### Widget UserBadge
 
@@ -34,13 +34,25 @@ A widget that makes use of `<Image>` and `figma.currentUser.photoUrl`.
 
 A simple table widget that showcases `useSyncedMap` to support concurrent updates to the widget and the `key` prop.
 
-![Table Widget](https://user-images.githubusercontent.com/610102/137217507-4a2c6bbc-01a2-4e3e-966d-a686353d3f2d.png)
+![Table Widget](https://user-images.githubusercontent.com/97200987/176718468-40da80cb-2258-4548-b6aa-01e3d163ff03.png)
 
 ### Widget Multiplayer Counter
 
 A multiplayer-safe counter widget that uses `useSyncedMap` and `figma.activeUsers[0].sessionId`
 
 ![Multiplayer Counter Widget](https://user-images.githubusercontent.com/610102/137217397-4e15c6f2-e33c-424f-93b3-e8a7ac743957.png)
+
+### Widget Toast
+
+Demonstrating how to use a UI to send messages to a widget.
+
+![Toast Widget](https://user-images.githubusercontent.com/97200987/176731176-c317be3b-14c1-4a8b-819b-4f08001ac282.png)
+
+### Widget Simple Annotate
+
+A simple widget for creating inline-editable annotations. It is [published to the community](https://www.figma.com/community/widget/1121551206624878752/Simple-Annotate).
+
+![Simple Annotate widget usage video](WidgetSimpleAnnotate/WidgetSimpleAnnotate.gif)
 
 ### create-widget-app
 
