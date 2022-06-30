@@ -1,5 +1,4 @@
-Table
-===
+# Table
 
 A simple table widget that showcases `useSyncedMap` to support concurrent updates to the widget and the `key` prop.
 
@@ -17,12 +16,13 @@ Code organization:
 ## Getting started
 
 ### One-time setup
+
 1. Make a copy of this folder
 2. Update manifest.json, package.json and package-lock.json where it says `name: ...`
 3. Install the required dependencies `npm ci`
 
-
 ### Importing your widget
+
 1. "Import widget from manifest"
 2. Build code `npm run build`
 3. Choose your manifest.json
@@ -36,6 +36,7 @@ npm run dev
 ```
 
 This command starts the follow in watch mode:
+
 1. typechecking for widget-src
 2. building for widget-src
 
@@ -43,11 +44,10 @@ While this command is running, any changes to `widget-src/code.tsx` will be comp
 
 ## Other scripts
 
-| script                   | description                                              |
-| ------------------------ | -------------------------------------------------------- |
-| npm run build            | one-off full build of the widget                         |
-| npm run test             | typecheck the widget code                                |
-
+| script        | description                      |
+| ------------- | -------------------------------- |
+| npm run build | one-off full build of the widget |
+| npm run test  | typecheck the widget code        |
 
 # Issues / Bugs
 
