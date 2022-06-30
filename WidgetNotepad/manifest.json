@@ -2,7 +2,7 @@
   "name": "Notepad",
   "id": "10074075004744806012",
   "api": "1.0.0",
-  "editorType": ["figjam"],
+  "editorType": ["figma", "figjam"],
   "permissions": [],
   "containsWidget": true,
   "main": "dist/code.js",
