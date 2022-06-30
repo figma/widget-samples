@@ -2,7 +2,7 @@
   "name": "MultiplayerCounter",
   "id": "10074075004744806999",
   "api": "1.0.0",
-  "editorType": ["figjam"],
+  "editorType": ["figma", "figjam"],
   "permissions": ["activeusers"],
   "containsWidget": true,
   "main": "dist/code.js",
