@@ -1,5 +1,5 @@
 {
-  "name": "Notepad",
+  "name": "notepad",
   "version": "1.0.0",
   "description": "Sample Widget that uses an iframe",
   "scripts": {

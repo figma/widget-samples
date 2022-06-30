@@ -1,5 +1,5 @@
 {
-  "name": "UserBadge",
+  "name": "user-badge",
   "version": "1.0.0",
   "description": "Sample Widget that uses Image",
   "scripts": {
