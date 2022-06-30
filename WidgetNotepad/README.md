@@ -1,6 +1,6 @@
 # Notepad
 
-A widget that showcases the `<Input />` component to get user input directly on the canvas.
+A widget that showcases the [`Input`](https://www.figma.com/widget-docs/api/component-Input/) component to get user input directly on the canvas.
 
 Code organization:
 
