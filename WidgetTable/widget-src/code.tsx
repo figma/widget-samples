@@ -1,105 +1,74 @@
-const { widget } = figma
-const { AutoLayout, Text, useSyncedMap, useEffect } = widget
+const { widget } = figma;
+const { AutoLayout, Input, Text, useSyncedMap } = widget;
 
-const numRows = 3
-const numCols = 3
+const numRows = 3;
+const numCols = 3;
 
 function numToIndices(num: number): number[] {
-  const ret = []
-  for (let i = 0; i < num; i++) {
-    ret.push(i)
-  }
-  return ret
-}
-
-function showEditorForCell(cellKey: string, cellContents: string) {
-  figma.showUI(`
-    <h3>Current Cell: ${cellKey}</h3>
-    <pre id="editor" autofocus contenteditable=true>${cellContents}</pre>
-      <button id="button">update</button>
-      <script>
-        const editor = document.getElementById("editor");
-        const button = document.getElementById("button");
-        editor.addEventListener("input", () => {
-          parent.postMessage({
-            pluginMessage: {
-              contents: editor.innerText,
-              cellKey: ${JSON.stringify(cellKey)}
-            },
-          }, '*');
-        })
-        editor.focus();
-      </script>
-  `)
+  return new Array(num).fill(0).map((_, i) => i);
 }
 
 function Table() {
-  const cells = useSyncedMap<string>('cells')
-  useEffect(() => {
-    figma.ui.onmessage = ({ contents, cellKey }) => {
-      cells.set(cellKey, contents)
-    }
-  })
+  const cells = useSyncedMap<string>("cells");
 
   return (
     <AutoLayout
-      direction="vertical"
-      horizontalAlignItems="center"
-      verticalAlignItems="center"
-      height="hug-contents"
-      padding={8}
-      fill="#FFFFFF"
-      spacing={12}
-      stroke="#123456"
       cornerRadius={3}
+      direction="vertical"
+      fill="#FFFFFF"
+      height="hug-contents"
+      horizontalAlignItems="center"
+      padding={8}
+      spacing={12}
+      stroke="#000"
+      verticalAlignItems="center"
     >
-      {numToIndices(numRows).map((rowIdx) => {
-        return (
-          <AutoLayout
-            key={rowIdx}
-            direction="horizontal"
-            horizontalAlignItems="start"
-            verticalAlignItems="start"
-            spacing={12}
-          >
-            {numToIndices(numCols).map((colIdx) => {
-              const cellKey = `${rowIdx}-${colIdx}`
-              const cellContents = cells.get(cellKey) || ''
+      {numToIndices(numRows).map((rowIdx) => (
+        <AutoLayout
+          key={rowIdx}
+          direction="horizontal"
+          horizontalAlignItems="start"
+          spacing={12}
+          verticalAlignItems="start"
+        >
+          {numToIndices(numCols).map((colIdx) => {
+            const cellKey = `${rowIdx}-${colIdx}`;
+            const cellContents = cells.get(cellKey) || "";
 
-              return (
+            return (
+              <AutoLayout
+                key={colIdx}
+                cornerRadius={3}
+                direction="vertical"
+                fill="#fff"
+                stroke="#000"
+              >
+                <Input
+                  inputFrameProps={{ padding: 5 }}
+                  onTextEditEnd={(e) => cells.set(cellKey, e.characters)}
+                  placeholder="Edit me..."
+                  value={cellContents}
+                />
                 <AutoLayout
-                  key={colIdx}
-                  direction="vertical"
-                  stroke="#123456"
-                  fill="#ffffff"
-                  cornerRadius={3}
-                  onClick={() => {
-                    showEditorForCell(cellKey, cellContents)
-                    return new Promise<void>(() => {})
-                  }}
+                  direction="horizontal"
+                  padding={{ bottom: 5, left: 5, right: 5 }}
                 >
-                  <AutoLayout direction="horizontal" padding={5}>
-                    <Text fontSize={18} horizontalAlignText="center" width="fill-parent">
-                      {cellContents || 'Click me to edit'}
-                    </Text>
-                  </AutoLayout>
-                  <AutoLayout direction="horizontal" padding={1}>
-                    <Text
-                      fontSize={12}
-                      horizontalAlignText="left"
-                      width="fill-parent"
-                      fill="#123456"
-                    >
-                      {rowIdx}x{colIdx}
-                    </Text>
-                  </AutoLayout>
+                  <Text
+                    fontSize={12}
+                    horizontalAlignText="left"
+                    fill="#123456"
+                    lineHeight={12}
+                    width="fill-parent"
+                  >
+                    {rowIdx}x{colIdx}
+                  </Text>
                 </AutoLayout>
-              )
-            })}
-          </AutoLayout>
-        )
-      })}
+              </AutoLayout>
+            );
+          })}
+        </AutoLayout>
+      ))}
     </AutoLayout>
-  )
+  );
 }
-widget.register(Table)
+widget.register(Table);
