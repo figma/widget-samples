@@ -1,0 +1,10 @@
+{
+  "name": "Toast",
+  "id": "widget-id-fdhCH5Cvml",
+  "api": "1.0.0",
+  "editorType": ["figma","figjam"],
+  "permissions": [],
+  "containsWidget": true,
+  "main": "dist/code.js",
+  "widgetApi": "1.0.0"
+}
