@@ -4,10 +4,16 @@ const { AutoLayout, Text, useStickable, useStickableHost, useSyncedState } =
 
 function Widget() {
   const [stickable, setStickable] = useSyncedState("stickable", true);
+  // A widget can either be stickable or a stickable host at any given point in time, never both simultaneously.
+  // We are using state to toggle the behavior for the widget.
   if (stickable) {
-    useStickable();
+    useStickable(({ newHostId, oldHostId }) =>
+      console.log({ newHostId, oldHostId })
+    );
   } else {
-    useStickableHost();
+    useStickableHost(({ stuckNodeIds, unstuckNodeIds }) =>
+      console.log({ stuckNodeIds, unstuckNodeIds })
+    );
   }
   const text =
     editorType === "figma"
