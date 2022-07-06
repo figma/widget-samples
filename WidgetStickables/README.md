@@ -1,8 +1,8 @@
-# WidgetStick
+# WidgetStickables
 
 A widget that demonstrates how to use the `useStickable` and `useStickableHost` hooks, `tooltip`, `hoverStyle`, and `figma.editorType`.
 
-![Stick widget being used](WidgetStick.gif)
+![Stick widget being used](WidgetStickables.gif)
 
 This repo was created by @figma/create-widget
 
