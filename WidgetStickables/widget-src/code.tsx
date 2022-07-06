@@ -9,12 +9,12 @@ function Widget() {
   if (stickable) {
     useStickable(({ newHostId, oldHostId }) => {
       // https://www.figma.com/widget-docs/api/type-WidgetStuckEvent
-      // console.log({ newHostId, oldHostId })
+      console.log({ newHostId, oldHostId });
     });
   } else {
     useStickableHost(({ stuckNodeIds, unstuckNodeIds }) => {
       // https://www.figma.com/widget-docs/api/type-WidgetAttachedStickablesChangedEvent
-      // console.log({ stuckNodeIds, unstuckNodeIds })
+      console.log({ stuckNodeIds, unstuckNodeIds });
     });
   }
   const text =
