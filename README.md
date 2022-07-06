@@ -54,11 +54,11 @@ A simple widget for creating inline-editable annotations. It is [published to th
 
 ![Simple Annotate widget usage video](WidgetSimpleAnnotate/WidgetSimpleAnnotate.gif)
 
-### Widget Stick
+### Widget Stickables
 
 A widget that demonstrates stickable and stickable host.
 
-![Stick widget usage video](WidgetStick/WidgetStick.gif)
+![Stickables widget usage video](WidgetStickables/WidgetStickables.gif)
 
 ### create-widget-app
 
