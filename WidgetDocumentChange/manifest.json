@@ -1,0 +1,11 @@
+{
+  "name": "DocumentChange",
+  "id": "widget-id-SiNyKMqBwK",
+  "api": "1.0.0",
+  "editorType": ["figma", "figjam"],
+  "permissions": [],
+  "containsWidget": true,
+  "main": "dist/code.js",
+  "widgetApi": "1.0.0",
+  "enableProposedApi": true
+}
