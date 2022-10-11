@@ -1,5 +1,5 @@
 const { widget } = figma;
-const { AutoLayout, Text, useEffect, useSyncedState } = widget;
+const { AutoLayout, Line, Text, useEffect, useSyncedState } = widget;
 
 const eventName = "nodechange"; // eventually, "documentchange"
 
@@ -38,20 +38,27 @@ function Widget() {
     <AutoLayout
       direction="vertical"
       height="hug-contents"
-      padding={8}
-      fill="#FFFFFF"
       onClick={() =>
         new Promise(() => {
           figma.showUI("", { visible: false });
         })
       }
-      spacing={12}
       width={400}
     >
-      {(log.length ? log : ["CLICK TO START"]).map((item) => (
-        <Text key={item} fontSize={12}>
-          {item}
-        </Text>
+      {(log.length ? log : ["CLICK TO START"]).map((item, i) => (
+        <>
+          {i === 0 ? null : <Line length={400} stroke="#eee" />}
+          <AutoLayout
+            key={item}
+            padding={12}
+            fill="#FFFFFF"
+            width={"fill-parent"}
+          >
+            <Text key={item} fontSize={12}>
+              {item}
+            </Text>
+          </AutoLayout>
+        </>
       ))}
     </AutoLayout>
   );
