@@ -1,36 +1,43 @@
 const { widget } = figma;
 const { AutoLayout, Line, Text, useEffect, useSyncedState } = widget;
 
-const eventName = "nodechange"; // eventually, "documentchange"
-
 function Widget() {
   const [log, setLog] = useSyncedState<string[]>("log", []);
 
   function onClose() {
     setLog([]);
   }
-  function onDocumentChange(event: NodeChangeEvent) {
+
+  function documentChangeAsString(change: DocumentChange) {
+    const { origin, type } = change;
+    const list: string[] = [origin, type];
+    if (type === "PROPERTY_CHANGE") {
+      list.push(change.node.type);
+      list.push(change.properties.join(", "));
+    } else if (type === "STYLE_CHANGE") {
+      list.push(change.style.name);
+      list.push(change.properties.join(", "));
+    } else {
+      list.push(change.node.type);
+    }
+    return list.join(" ");
+  }
+
+  function onDocumentChange(event: DocumentChangeEvent) {
     const tmp: string[] = [
-      ...event.nodeChanges.map(
-        (change) =>
-          `${change.origin} ${change.type} ${change.node.type} ${
-            change.type === "PROPERTY_CHANGE"
-              ? change.properties.join(", ")
-              : ""
-          }`
-      ),
+      ...event.documentChanges.map(documentChangeAsString),
       ...log,
     ];
-    tmp.splice(Math.min(10, tmp.length), tmp.length);
+    tmp.splice(Math.min(50, tmp.length), tmp.length);
     setLog(tmp);
   }
 
   useEffect(() => {
     figma.on("close", onClose);
-    figma.on(eventName, onDocumentChange);
+    figma.on("documentchange", onDocumentChange);
     return function cleanup() {
       figma.off("close", onClose);
-      figma.off(eventName, onDocumentChange);
+      figma.off("documentchange", onDocumentChange);
     };
   });
 
@@ -54,9 +61,7 @@ function Widget() {
             fill="#FFFFFF"
             width={"fill-parent"}
           >
-            <Text key={item} fontSize={12}>
-              {item}
-            </Text>
+            <Text fontSize={12}>{item}</Text>
           </AutoLayout>
         </>
       ))}
