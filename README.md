@@ -60,6 +60,10 @@ A widget that demonstrates stickable and stickable host.
 
 ![Stickables widget usage video](WidgetStickables/WidgetStickables.gif)
 
+### Widget Document Change
+
+A widget that demonstrates how to listen for document change events in a widget context.
+
 ### create-widget-app
 
 An template widget that opens an iframe whose contents is rendered using React. This mainly serves to demonstrate how to structure code for non-trivial widgets and their iframes.
