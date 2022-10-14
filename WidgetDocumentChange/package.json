@@ -13,7 +13,7 @@
   "author": "Figma",
   "license": "MIT License",
   "devDependencies": {
-    "@figma/plugin-typings": "github:figma/plugin-typings#node-change-preview",
+    "@figma/plugin-typings": "*",
     "@figma/widget-typings": "*",
     "concurrently": "^6.3.0",
     "esbuild": "^0.13.5",

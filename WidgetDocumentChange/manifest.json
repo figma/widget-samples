@@ -6,6 +6,5 @@
   "permissions": [],
   "containsWidget": true,
   "main": "dist/code.js",
-  "widgetApi": "1.0.0",
-  "enableProposedApi": true
+  "widgetApi": "1.0.0"
 }
